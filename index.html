@@ -10,7 +10,8 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
+    scroll-behavior:smooth;
 }
 
 body{
@@ -24,10 +25,11 @@ nav{
     justify-content:space-between;
     align-items:center;
     padding:20px 50px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.4);
     backdrop-filter: blur(10px);
-    position:sticky;
-    top:0;
+    position:fixed;
+    width:100%;
+    z-index:1000;
 }
 
 nav h1{
@@ -40,29 +42,24 @@ nav ul{
     list-style:none;
 }
 
-nav ul li{
-    cursor:pointer;
+nav ul li a{
+    color:white;
+    text-decoration:none;
     transition:0.3s;
 }
 
-nav ul li:hover{
+nav ul li a:hover{
     color:#FFD700;
 }
 
 /* HERO */
 .hero{
     text-align:center;
-    padding:100px 20px;
+    padding:150px 20px 100px;
 }
 
 .hero h2{
-    font-size:40px;
-    margin-bottom:20px;
-}
-
-.hero p{
-    font-size:18px;
-    opacity:0.8;
+    font-size:45px;
 }
 
 .btn{
@@ -70,55 +67,72 @@ nav ul li:hover{
     padding:12px 25px;
     background:#FFD700;
     border:none;
-    color:black;
-    font-weight:bold;
     border-radius:25px;
     cursor:pointer;
-    transition:0.3s;
 }
 
-.btn:hover{
-    transform:scale(1.1);
+/* SECTIONS */
+section{
+    padding:80px 20px;
+    text-align:center;
 }
 
 /* CARDS */
 .container{
-    padding:50px;
     display:grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
+    padding:30px;
 }
 
 .card{
     background: rgba(255,255,255,0.1);
     padding:20px;
     border-radius:15px;
-    text-align:center;
     transition:0.3s;
 }
 
 .card:hover{
     transform:translateY(-10px);
-    background: rgba(255,255,255,0.2);
+}
+
+/* IMAGES */
+.card img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:10px;
 }
 
 /* PORTFOLYO */
-.portfolio{
-    padding:50px;
-    text-align:center;
-}
-
 .portfolio img{
-    width:100%;
+    width:300px;
+    margin:10px;
     border-radius:10px;
 }
 
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:30px;
-    background:rgba(0,0,0,0.3);
-    margin-top:50px;
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:20px;
+}
+
+/* ANIMATION */
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 </style>
@@ -130,64 +144,92 @@ footer{
 <nav>
     <h1>Designomate</h1>
     <ul>
-        <li>Hakkımızda</li>
-        <li>Hizmetler</li>
-        <li>Portföy</li>
-        <li>İletişim</li>
+        <li><a href="#home">Ana Sayfa</a></li>
+        <li><a href="#about">Hakkımızda</a></li>
+        <li><a href="#services">Hizmetler</a></li>
+        <li><a href="#portfolio">Portföy</a></li>
+        <li><a href="#contact">İletişim</a></li>
     </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section id="home" class="hero">
     <h2>Yaratıcı Dijital Çözümler</h2>
-    <p>Yazılım, tasarım ve medya alanında profesyonel hizmetler sunuyoruz.</p>
-    <button class="btn">Bize Ulaş</button>
+    <p>Yazılım, tasarım ve medya hizmetleri</p>
+    <button class="btn" onclick="whatsapp()">Bize Ulaş</button>
+</section>
+
+<!-- HAKKIMIZDA -->
+<section id="about" class="fade">
+    <h2>Hakkımızda</h2>
+    <p>Designomate olarak yazılım, tasarım ve medya alanında profesyonel çözümler sunuyoruz.</p>
 </section>
 
 <!-- HİZMETLER -->
-<section class="container">
+<section id="services" class="fade">
+    <h2>Hizmetler</h2>
 
-    <div class="card">
-        <h3>C# Otomasyon</h3>
-        <p>Endüstriyel ve yazılım otomasyon çözümleri</p>
+    <div class="container">
+
+        <div class="card">
+            <img src="img/otomasyon.jpg">
+            <h3>C# Otomasyon</h3>
+        </div>
+
+        <div class="card">
+            <img src="img/3dmodel.jpg">
+            <h3>3D Modelleme</h3>
+        </div>
+
+        <div class="card">
+            <img src="img/afis.jpg">
+            <h3>Grafik Tasarım</h3>
+        </div>
+
+        <div class="card">
+            <img src="img/video.jpg">
+            <h3>Video Prodüksiyon</h3>
+        </div>
+
     </div>
-
-    <div class="card">
-        <h3>3D Modelleme</h3>
-        <p>Profesyonel 3D tasarım ve baskı hizmeti</p>
-    </div>
-
-    <div class="card">
-        <h3>Grafik Tasarım</h3>
-        <p>Logo, afiş ve marka kimliği</p>
-    </div>
-
-    <div class="card">
-        <h3>Video Prodüksiyon</h3>
-        <p>Reklam ve sosyal medya videoları</p>
-    </div>
-
 </section>
 
 <!-- PORTFOLYO -->
-<section class="portfolio">
+<section id="portfolio" class="portfolio fade">
     <h2>Portföy</h2>
-    <p>Projeleriniz burada sergilenecek</p>
-    <br>
-    <img src="https://picsum.photos/800/400" alt="örnek">
+
+    <img src="img/afis.jpg">
+    <img src="img/3dmodel.jpg">
+    <img src="img/video.jpg">
 </section>
 
 <!-- İLETİŞİM -->
-<section class="portfolio">
+<section id="contact" class="fade">
     <h2>İletişim</h2>
-    <p>Telefon: 542 163 3907</p>
-    <p>Email: info@designomate.com</p>
+    <p>📞 542 163 3907</p>
+    <p>📧 info@designomate.com</p>
 </section>
 
-<!-- FOOTER -->
-<footer>
-    © 2026 Designomate | Tüm Hakları Saklıdır
-</footer>
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/905421633907" target="_blank">💬</a>
+
+<script>
+function whatsapp(){
+    window.open("https://wa.me/905421633907");
+}
+
+// ANIMATION
+const faders = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", ()=>{
+    faders.forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add("show");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
