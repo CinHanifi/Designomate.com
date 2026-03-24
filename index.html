@@ -2,59 +2,117 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Designomate</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1abc9c, #3498db);
+      color: #fff;
+    }
+    header {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #f1c40f;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f1c40f;
+    }
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+    section h2 {
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    footer {
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Designomate</h1>
     <nav>
-      <ul>
-        <li><a href="#hakkimizda">Hakkımızda</a></li>
-        <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#portfoy">Portföy</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
-      </ul>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#hizmetler">Hizmetlerimiz</a>
+      <a href="#portfoy">Portföy</a>
+      <a href="#iletisim">İletişim</a>
     </nav>
   </header>
 
   <section id="hakkimizda">
     <h2>Hakkımızda</h2>
-    <p>Designomate, teknolojiyi tasarımla buluşturan yaratıcı çözüm merkezi. 
-       C# otomasyon, 3D modelleme ve baskı, reklam afişi, video prodüksiyon ve logo tasarımı ile markanızı geleceğe taşıyoruz.</p>
+    <div class="card">
+      <p>Designomate, teknolojiyi tasarımla buluşturan yaratıcı çözüm merkezi. 
+      C# otomasyon, 3D modelleme ve baskı, reklam afişi, video prodüksiyon ve logo tasarımı ile markanızı geleceğe taşıyoruz.</p>
+    </div>
   </section>
 
   <section id="hizmetler">
     <h2>Hizmetlerimiz</h2>
-    <ul>
-      <li>C# Otomasyon Çözümleri</li>
-      <li>3D Modelleme ve Baskı</li>
-      <li>Reklam Afişi Tasarımı</li>
-      <li>Video Prodüksiyon</li>
-      <li>Logo ve Kurumsal Kimlik</li>
-    </ul>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        <li>✔ C# Otomasyon Çözümleri</li>
+        <li>✔ 3D Modelleme ve Baskı</li>
+        <li>✔ Reklam Afişi Tasarımı</li>
+        <li>✔ Video Prodüksiyon</li>
+        <li>✔ Logo ve Kurumsal Kimlik</li>
+      </ul>
+    </div>
   </section>
 
   <section id="portfoy">
     <h2>Portföy</h2>
-    <div class="gallery">
-      <img src="img/otomasyon.jpg" alt="C# Otomasyon">
-      <img src="img/3dmodel.jpg" alt="3D Modelleme">
-      <img src="img/afis.jpg" alt="Reklam Afişi">
-      <img src="img/video.jpg" alt="Video Prodüksiyon">
-      <img src="img/logo.jpg" alt="Logo Tasarımı">
+    <div class="card">
+      <p>Burada projelerinizin görselleri ve örnek çalışmalar yer alacak.</p>
     </div>
   </section>
 
   <section id="iletisim">
     <h2>İletişim</h2>
-    <p>Bize ulaşın: <a href="mailto:info@designomate.com">info@designomate.com</a></p>
+    <div class="card">
+      <p>Telefon: 542 163 3907</p>
+      <p>Email: info@designomate.com</p>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Designomate. Tüm hakları saklıdır.</p>
+    <p>© 2026 Designomate - Tüm Hakları Saklıdır</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
