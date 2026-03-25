@@ -5,134 +5,133 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Designomate</title>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background: linear-gradient(135deg,#0f2027,#2c5364);
-    color:white;
+color:white;
 }
 
-/* NAVBAR */
+/* VIDEO BACKGROUND */
+video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
+}
+
+/* DARK MODE */
+.dark{
+background:black;
+color:white;
+}
+
+/* NAV */
 nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 50px;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(10px);
-    position:fixed;
-    width:100%;
-    z-index:1000;
+display:flex;
+justify-content:space-between;
+padding:20px 50px;
+background:rgba(0,0,0,0.5);
+position:fixed;
+width:100%;
+z-index:10;
 }
 
-nav h1{
-    color:#FFD700;
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+width:40px;
+border-radius:10px;
 }
 
 nav ul{
-    display:flex;
-    gap:20px;
-    list-style:none;
+display:flex;
+gap:20px;
+list-style:none;
 }
 
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#FFD700;
+nav a{
+color:white;
+text-decoration:none;
 }
 
 /* HERO */
 .hero{
-    text-align:center;
-    padding:150px 20px 100px;
-}
-
-.hero h2{
-    font-size:45px;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
 .btn{
-    margin-top:30px;
-    padding:12px 25px;
-    background:#FFD700;
-    border:none;
-    border-radius:25px;
-    cursor:pointer;
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:20px;
+background:#FFD700;
+cursor:pointer;
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-    padding:80px 20px;
-    text-align:center;
+padding:100px 20px;
+text-align:center;
 }
 
-/* CARDS */
-.container{
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    padding:30px;
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .card{
-    background: rgba(255,255,255,0.1);
-    padding:20px;
-    border-radius:15px;
-    transition:0.3s;
+background:rgba(255,255,255,0.1);
+padding:20px;
+border-radius:10px;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+/* FORM */
+input, textarea{
+width:80%;
+padding:10px;
+margin:10px;
+border:none;
+border-radius:10px;
 }
 
-/* IMAGES */
-.card img{
-    width:100%;
-    border-radius:10px;
-    margin-bottom:10px;
+/* CHATBOT */
+#chatbot{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#222;
+padding:15px;
+border-radius:10px;
+display:none;
 }
 
-/* PORTFOLYO */
-.portfolio img{
-    width:300px;
-    margin:10px;
-    border-radius:10px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    padding:15px;
-    border-radius:50%;
-    text-decoration:none;
-    font-size:20px;
-}
-
-/* ANIMATION */
-.fade{
-    opacity:0;
-    transform:translateY(30px);
-    transition:1s;
-}
-
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
+/* BUTTONS */
+.toggle{
+cursor:pointer;
 }
 
 </style>
@@ -140,95 +139,85 @@ section{
 
 <body>
 
-<!-- NAVBAR -->
+<!-- VIDEO -->
+<video autoplay muted loop>
+<source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+</video>
+
+<!-- NAV -->
 <nav>
-    <h1>Designomate</h1>
-    <ul>
-        <li><a href="#home">Ana Sayfa</a></li>
-        <li><a href="#about">Hakkımızda</a></li>
-        <li><a href="#services">Hizmetler</a></li>
-        <li><a href="#portfolio">Portföy</a></li>
-        <li><a href="#contact">İletişim</a></li>
-    </ul>
+<div class="logo">
+<img src="img/logo.jpg">
+<h2>Designomate</h2>
+</div>
+
+<ul>
+<li><a href="#home">Ana Sayfa</a></li>
+<li><a href="#services">Hizmetler</a></li>
+<li><a href="#portfolio">Portföy</a></li>
+<li><a href="#contact">İletişim</a></li>
+</ul>
+
+<div class="toggle" onclick="darkMode()">🌙</div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
-    <h2>Yaratıcı Dijital Çözümler</h2>
-    <p>Yazılım, tasarım ve medya hizmetleri</p>
-    <button class="btn" onclick="whatsapp()">Bize Ulaş</button>
+<section class="hero" id="home">
+<h1>Profesyonel Dijital Çözümler</h1>
+<button class="btn" onclick="openChat()">💬 Mesaj At</button>
 </section>
 
-<!-- HAKKIMIZDA -->
-<section id="about" class="fade">
-    <h2>Hakkımızda</h2>
-    <p>Designomate olarak yazılım, tasarım ve medya alanında profesyonel çözümler sunuyoruz.</p>
-</section>
+<!-- SERVICES -->
+<section id="services">
+<h2>Hizmetler</h2>
 
-<!-- HİZMETLER -->
-<section id="services" class="fade">
-    <h2>Hizmetler</h2>
+<div class="grid">
+<div class="card"><img src="img/otomasyon.jpg"><h3>Otomasyon</h3></div>
+<div class="card"><img src="img/3dmodel.jpg"><h3>3D</h3></div>
+<div class="card"><img src="img/afis.jpg"><h3>Tasarım</h3></div>
+<div class="card"><img src="img/video.jpg"><h3>Video</h3></div>
+</div>
 
-    <div class="container">
-
-        <div class="card">
-            <img src="img/otomasyon.jpg">
-            <h3>C# Otomasyon</h3>
-        </div>
-
-        <div class="card">
-            <img src="img/3dmodel.jpg">
-            <h3>3D Modelleme</h3>
-        </div>
-
-        <div class="card">
-            <img src="img/afis.jpg">
-            <h3>Grafik Tasarım</h3>
-        </div>
-
-        <div class="card">
-            <img src="img/video.jpg">
-            <h3>Video Prodüksiyon</h3>
-        </div>
-
-    </div>
 </section>
 
 <!-- PORTFOLYO -->
-<section id="portfolio" class="portfolio fade">
-    <h2>Portföy</h2>
-
-    <img src="img/afis.jpg">
-    <img src="img/3dmodel.jpg">
-    <img src="img/video.jpg">
+<section id="portfolio">
+<h2>Portföy</h2>
+<div class="grid">
+<img src="img/afis.jpg">
+<img src="img/3dmodel.jpg">
+<img src="img/video.jpg">
+</div>
 </section>
 
-<!-- İLETİŞİM -->
-<section id="contact" class="fade">
-    <h2>İletişim</h2>
-    <p>📞 542 163 3907</p>
-    <p>📧 info@designomate.com</p>
+<!-- CONTACT FORM -->
+<section id="contact">
+<h2>İletişim</h2>
+
+<input type="text" placeholder="Adınız">
+<input type="email" placeholder="Email">
+<textarea placeholder="Mesajınız"></textarea>
+<br>
+<button class="btn">Gönder</button>
+
 </section>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/905421633907" target="_blank">💬</a>
+<!-- CHATBOT -->
+<div id="chatbot">
+<p>Merhaba 👋 nasıl yardımcı olayım?</p>
+</div>
 
 <script>
-function whatsapp(){
-    window.open("https://wa.me/905421633907");
+
+function darkMode(){
+document.body.classList.toggle("dark");
 }
 
-// ANIMATION
-const faders = document.querySelectorAll(".fade");
+function openChat(){
+let bot = document.getElementById("chatbot");
+bot.style.display = bot.style.display === "none" ? "block" : "none";
+}
 
-window.addEventListener("scroll", ()=>{
-    faders.forEach(el=>{
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
-            el.classList.add("show");
-        }
-    });
-});
 </script>
 
 </body>
